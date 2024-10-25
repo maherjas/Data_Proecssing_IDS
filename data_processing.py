@@ -1,3 +1,25 @@
+# =======================================================================
+# This code reads the Excel files (KDD feature-based) and does the following:
+# 1- Calculate the probability for protocol, Service, and flags
+# 2- Replace nominal values with numeric 
+# 3- Generate a numeric CSV file 
+# 4- Read the CSV file and normalize it using min-max normalization
+# 5- Generate a normalized CSV file
+# This code considers the features as discrete random variables and transfers
+# each nominal value by using the probability mass function
+#
+# Created by: Maher Salem
+# Email: maher.salem@kcl.ac.uk / maherjas@yahoo.com
+# Date created: 10.02.2013 - updated on Occtober 24, 2024
+# =======================================================================
+# -----------------------------------------------------------------------
+# The dataset considered in this work has the following header. 
+# Notice that features are sorted based on column in the datasets, 
+# i.e. protocol_type is column one, service is column two etc...
+# [ protocol_type, service, src_byte, wrong_fragment, flag, num_failed_logins, 
+# logged_in, root_shell, count, serror_rate, srv_serror_rate, rerror_rate, 
+# srv_rerror_rate, same_srv_rate, diff_srv_rate, dst_host_srv_count, dst_host_serror_rate, class ]
+# ---------------------------------------------
 import pandas as pd
 import numpy as np
 import glob
